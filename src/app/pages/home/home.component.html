@@ -1,0 +1,205 @@
+<!-- Banner Start -->
+
+<div class="contain-fluid">
+  <div
+    id="mainCarousel"
+    class="carousel carousel-dark slide"
+    data-bs-ride="carousel"
+  >
+    <div class="carousel-inner">
+      <div
+        class="carousel-item active"
+        data-bs-interval="10000"
+        *ngFor="let b of bannerResult; let i = index"
+        [ngClass]="{ active: i === 1 }"
+      >
+        <img
+          routerLink="/movie/{{ b.id }}"
+          src="https://image.tmdb.org/t/p/original/{{ b.backdrop_path }}"
+          alt=""
+          class="d-block w-100"
+        />
+        <div class="carousel-caption d-none d-md-block">
+          <h2 class="text-danger fw-bold">{{ b.original_title }}</h2>
+          <p class="text-white">{{ b.overview }}</p>
+        </div>
+      </div>
+    </div>
+    <a
+      data-bs-target="#mainCarousel"
+      class="carousel-control-prev"
+      role="button"
+      data-bs-slide-to="prev"
+    >
+      <span class="carousel-control-prev-icon"></span>
+      <span class="visually-hidden">Previous</span>
+    </a>
+    <a
+      data-bs-target="#mainCarousel"
+      role="button"
+      class="carousel-control-next"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon"></span>
+    </a>
+  </div>
+</div>
+
+<!-- Banner End -->
+
+<div class="contain mt-3 p-4">
+  <!-- Trending Movies -->
+  <div class="row">
+    <h5 class="text-white">Trending Movies</h5>
+    <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let t of trendingMoviesResult">
+        <ng-template carouselSlide>
+          <div class="rowposter mt-3 px-1">
+            <img
+              routerLink="/movie/{{ t.id }}"
+              src="https://image.tmdb.org/t/p/original/{{ t.poster_path }}"
+              alt=""
+              class="rowimg largeposter"
+            />
+          </div>
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </div>
+
+  <!-- Action Movies -->
+  <div class="row mt-4">
+    <h5 class="text-white">Action Movies</h5>
+    <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let a of actionMovieResult">
+        <ng-template carouselSlide>
+          <div class="rowposter mt-3 px-1">
+            <img
+              routerLink="/movie/{{ a.id }}"
+              src="https://image.tmdb.org/t/p/original/{{ a.poster_path }}"
+              alt=""
+              class="rowimg largeposter"
+            />
+          </div>
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </div>
+
+  <!-- Adventure Movies -->
+  <div class="row mt-4">
+    <h5 class="text-white">Adventure Movies</h5>
+    <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let ad of adventureMovieResult">
+        <ng-template carouselSlide>
+          <div class="rowposter mt-3 px-1">
+            <img
+              routerLink="/movie/{{ ad.id }}"
+              src="https://image.tmdb.org/t/p/original/{{ ad.poster_path }}"
+              alt=""
+              class="rowimg largeposter"
+            />
+          </div>
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </div>
+
+  <!-- Animation Movies -->
+  <div class="row mt-4">
+    <h5 class="text-white">Animation Movies</h5>
+    <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let an of animationMovieResult">
+        <ng-template carouselSlide>
+          <div class="rowposter mt-3 px-1">
+            <img
+              routerLink="/movie/{{ an.id }}"
+              src="https://image.tmdb.org/t/p/original/{{ an.poster_path }}"
+              alt=""
+              class="rowimg largeposter"
+            />
+          </div>
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </div>
+
+  <!-- Comedy Movies -->
+  <div class="row mt-4">
+    <h5 class="text-white">Comedy Movies</h5>
+    <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let c of comedyMovieResult">
+        <ng-template carouselSlide>
+          <div class="rowposter mt-3 px-1">
+            <img
+              routerLink="/movie/{{ c.id }}"
+              src="https://image.tmdb.org/t/p/original/{{ c.poster_path }}"
+              alt=""
+              class="rowimg largeposter"
+            />
+          </div>
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </div>
+
+  <!-- Documentary Movies -->
+
+  <div class="row mt-4">
+    <h5 class="text-white">Documentary Movies</h5>
+    <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let d of documentaryMovieResult">
+        <ng-template carouselSlide>
+          <div class="rowposter mt-3 px-1">
+            <img
+              routerLink="/movie/{{ d.id }}"
+              src="https://image.tmdb.org/t/p/original/{{ d.poster_path }}"
+              alt=""
+              class="rowimg largeposter"
+            />
+          </div>
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </div>
+
+  <!-- Science-Fiction Movies-->
+
+  <div class="row mt-4">
+    <h5 class="text-white">Science-Fiction Movies</h5>
+    <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let s of scienceFictionMovieResult">
+        <ng-template carouselSlide>
+          <div class="rowposter mt-3 px-1">
+            <img
+              routerLink="/movie/{{ s.id }}"
+              src="https://image.tmdb.org/t/p/original/{{ s.poster_path }}"
+              alt=""
+              class="rowimg largeposter"
+            />
+          </div>
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </div>
+
+  <!-- Thriller Movies  -->
+
+  <div class="row mt-4">
+    <h5 class="text-white">Thriller Movies</h5>
+    <owl-carousel-o [options]="customOptions">
+      <ng-container *ngFor="let t of thrillerMovieResult">
+        <ng-template carouselSlide>
+          <div class="rowposter mt-3 px-1">
+            <img
+              routerLink="/movie/{{ t.id }}"
+              src="https://image.tmdb.org/t/p/original/{{ t.poster_path }}"
+              alt=""
+              class="rowimg largeposter"
+            />
+          </div>
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </div>
+</div>

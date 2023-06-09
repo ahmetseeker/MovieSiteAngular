@@ -1,0 +1,19 @@
+<div class="contain mt-5 p-5">
+    <div class="d-flex justify-content-center">
+        <form class="form-group d-flex gap-2 mt-5 w-75">
+            <input #movieName type="text" class="form-control" (change)="searchMovie(movieName.value)" placeholder="Search Movie Here ...">
+            <button type="button" class="btn btn-danger" (click)="searchMovie(movieName.value)">Search</button>
+        </form>
+    </div>
+
+    <div class="row mt-5 justify-content-around">
+        <div class="col-lg-2 my-4" *ngFor="let s of searchResult" [ngStyle]="s.poster_path? {display: 'flex'}: {display: 'none'}">
+            <a routerLink="/movie/{{ s.id }}" class="row text-decoration-none" *ngIf="s.poster_path">
+                <div class="col">
+                    <img class="w-100" src="https://image.tmdb.org/t/p/original/{{ s.poster_path }}" alt="">
+                    <h5 class="text-white mt-3">{{ s.original_title }}</h5>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

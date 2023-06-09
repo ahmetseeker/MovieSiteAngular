@@ -1,0 +1,34 @@
+<div class="contain mt-5">
+    <div class="row p-5 align-items-center">
+        <div class="col-lg-2" *ngIf="movieDetailResult.poster_path">
+            <img src="https://image.tmdb.org/t/p/original/{{ movieDetailResult.poster_path }}" class="w-100" alt="">
+        </div>
+        <div class="col-lg-10 text-white">
+            <h1 class="my-3 fw-bold">{{ movieDetailResult.original_title }}</h1>
+            <p class="my-3">{{ movieDetailResult.overview }}</p>
+            <div class="genres mb-4">
+                <span class="badge bg-secondary me-2" *ngFor="let g of movieDetailResult.genres">
+                    {{ g.name }}
+                </span>
+            </div>
+            <a href="https://www.themoviedb.org/video/play?key={{movieVideoResult}}" class="btn btn-md btn-danger" target="_blank">Watch Trailer</a>
+        </div>
+    </div>
+
+    <div class="container cast my-4">
+        <h2 class="text-white mb-5 text-center">Top Cast</h2>
+        <div class="row justify-content-center p-5">
+            <div class="col-lg-4 col-md-6 mb-3" *ngFor="let c of movieCastResult" [ngStyle]="c.profile_path? {display: 'flex'}: {display: 'none'}">
+                <div class="row" *ngIf="c.profile_path">
+                    <div class="col-lg-2 col-md-4">
+                        <img src="https://image.tmdb.org/t/p/original/{{ c.profile_path }}" class="w-100" alt="">
+                    </div>
+                    <div class="col-lg-10 col-md-8 text-white">
+                        <h3>{{ c.original_name }}</h3>
+                        <p>{{ c.character }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

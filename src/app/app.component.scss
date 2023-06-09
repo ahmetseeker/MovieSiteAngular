@@ -1,0 +1,11 @@
+.navbar {
+    .navbar-toggler {
+        border: none;
+        &:focus {
+            box-shadow: none;
+        }
+        .fa-bars-staggered {
+            color: white;
+        }
+    }
+}
